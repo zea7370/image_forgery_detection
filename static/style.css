@@ -3,120 +3,122 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a, #020617);
+    /* High-tech forensic background with a dark overlay for readability */
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.92), rgba(15, 23, 42, 0.88)),
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #111827;
+    padding: 20px;
 }
 
 /* ===== CONTAINER ===== */
 .container {
-    background: #53586e;
+    /* Switched to a darker background to make white/light text pop */
+    background: rgba(30, 41, 59, 0.95);
     width: 900px;
     max-width: 95%;
-    padding: 30px;
-    border-radius: 18px;
-    /* A darker, sharper border for that 'lined' look */
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
 
-    /* Subtle, deep base shadow */
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.3),
-        0 2px 4px -1px rgba(0, 0, 0, 0.2),
-        inset 0 1px 1px rgba(255, 255, 255, 0.05);
-
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .container:hover {
-    /* The "Cool Glow": tight dark line, followed by a soft, deep bloom */
-    box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.4),   /* Sharp blue line */
-        0 0 20px rgba(30, 58, 138, 0.3),     /* Deep navy bloom */
-        0 10px 40px rgba(0, 0, 0, 0.6);      /* Grounding dark shadow */
-
-    border-color: rgba(59, 130, 246, 0.5);
-    transform: translateY(-2px); /* Optional: adds to the "light" feel */
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
 }
+
 /* ===== HEADINGS ===== */
 h1 {
     text-align: center;
-    color: #0f172a;
-    margin-bottom: 10px;
+    color: #f8fafc; /* Crisp white-blue for visibility */
+    margin-bottom: 8px;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 .subtitle {
     text-align: center;
-    color: #6b7280;
-    margin-bottom: 25px;
+    color: #94a3b8; /* Light grey-blue */
+    margin-bottom: 35px;
+    font-size: 1.1rem;
 }
 
-/* ===== UPLOAD BOX (FIXED – NO WHITE EVER) ===== */
+/* ===== UPLOAD BOX ===== */
 .upload-box {
-    border: 2px dashed #94a3b8;
-    padding: 40px;
+    border: 2px dashed #334155;
+    padding: 50px 30px;
     text-align: center;
-    border-radius: 14px;
-    background: rgba(15, 23, 42, 0.08);
-    backdrop-filter: blur(2px);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.4);
+    transition: all 0.3s ease;
 }
 
 .upload-box:hover {
-    border-color: #2563eb;
-    box-shadow:
-        0 0 0 1px rgba(37, 99, 235, 0.8),
-        0 0 22px rgba(37, 99, 235, 0.45);
-    background: rgba(15, 23, 42, 0.08); /* stays dark */
+    border-color: #3b82f6;
+    background: rgba(30, 41, 59, 0.6);
 }
 
-/* ===== FILE INPUT ===== */
+/* ===== FILE INPUT & BUTTONS ===== */
 .file-input {
-    margin-top: 20px;
+    margin-top: 40px; /* Increased spacing to move "Choose Files" down */
 }
 
 .file-label {
     display: inline-block;
-    padding: 12px 22px;
-    background: #020617;
-    color: #e5e7eb;
-    border: 1px solid #334155;
-    border-radius: 8px;
+    padding: 14px 28px;
+    background: #3b82f6; /* Brighter blue for primary action */
+    color: #ffffff;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .file-label:hover {
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+    background: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
 #file-name {
-    margin-left: 15px;
-    color: #6b7280;
+    display: block;
+    margin-top: 15px;
+    color: #cbd5e1; /* Visible light grey */
     font-size: 14px;
 }
 
-/* ===== BUTTON ===== */
 button {
-    margin-top: 20px;
-    padding: 12px 28px;
-    background: #2563eb;
+    margin-top: 25px;
+    width: 100%;
+    padding: 15px;
+    background: #10b981; /* Emerald green for "Analyze" action */
     border: none;
     color: white;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 button:hover {
-    background: #1e40af;
+    background: #059669;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 
 /* ===== RESULT GRID ===== */
@@ -124,78 +126,74 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
-    margin-top: 25px;
+    margin-top: 40px;
 }
 
 .card {
-    background: #e5e7eb;
-    padding: 22px;
-    border-radius: 14px;
-    border: 1px solid #334155;
-    box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.9),
-        0 0 18px rgba(15, 23, 42, 0.6);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 0 0 1px rgba(37, 99, 235, 0.9),
-        0 0 26px rgba(37, 99, 235, 0.6);
+    background: #f8fafc; /* Keep cards light so results are easy to read */
+    padding: 24px;
+    border-radius: 16px;
+    color: #1e293b; /* Dark text on light card */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #0f172a;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
 }
 
 .card img {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 14px rgba(15, 23, 42, 0.4);
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #e2e8f0;
 }
 
 /* ===== STATUS ===== */
 .status {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 15px;
+    display: block;
 }
 
-.status.safe {
-    color: #16a34a;
-}
-
-.status.alert {
-    color: #dc2626;
-}
+.status.safe { color: #059669; }
+.status.alert { color: #dc2626; }
 
 /* ===== TABLE ===== */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 th, td {
-    padding: 10px;
-    border-bottom: 1px solid #e5e7eb;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e2e8f0;
     text-align: left;
+    font-size: 14px;
 }
 
 th {
-    background: #e0e7ff;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 /* ===== FOOTER LINK ===== */
 .back-link {
-    display: inline-block;
-    margin-top: 25px;
-    color: #2563eb;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #94a3b8;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .back-link:hover {
+    color: #3b82f6;
     text-decoration: underline;
 }
