@@ -1,0 +1,9 @@
+Flask
+Werkzeug
+numpy
+opencv-python-headless
+Pillow
+scikit-image
+scikit-learn
+joblib
+piexif
